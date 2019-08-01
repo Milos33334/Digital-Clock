@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Digital Clock Project</title>
+	<style type="text/css">
+		body{
+			background: #000;
+		}
+		.clock{
+			position: absolute;
+			top: 50%
+			left:50%;
+			transform: translateX(%50%); translateY(-50%);
+			color:#fff;
+			font-size:100px;
+			border: 1px solid #fff;
+			padding: 0px 5px 0px 5px
+			
+
+		}
+	</style>
+	
+</head>
+<body>
+	
+	<div id="MyClockDisplay" class="clock"></div>
+	<script type="text/javascript">
+		function TimeShow() {
+			var date = new Date();
+			var H = date.getHours();
+			var M = date.getMinutes();
+			var S = date.getSeconds();
+			var session = "AM"
+
+
+			if(H == 0){
+				H = 12;
+			}
+			if(H > 12){
+				H = H - 12;
+			}
+			
+			H = (H < 10) ? "0" + H : H;
+			M = (M < 10) ? "0" + M : M;
+			S = (S < 10) ? "0" + S : S;
+
+
+
+
+			var dime = H + ":" + M + ":" + S + " " + session; 
+
+			document.getElementById("MyClockDisplay").innerText = dime
+			document.getElementById("MyClockDisplay").textContent == dime;
+		}
+		setInterval(TimeShow, 1000)
+		
+	</script>
+
+</body>
+</html>
